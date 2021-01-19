@@ -1,0 +1,7 @@
+<p>loteria works!</p>
+<app-generar-loteria #numero1></app-generar-loteria>
+<app-generar-loteria #numero2></app-generar-loteria>
+{{numero1.digito}} {{numero2.digito}}
+<button (click)="numero1.generarNumeroAleatorio(); numero2.generarNumeroAleatorio()">Dame un numero</button>
+<p *ngIf="(numero1.digito==numero2.digito)">Premio</p>
+<p *ngIf="(numero1.digito!=numero2.digito)">Fallaste</p>

@@ -7,13 +7,17 @@ import { HomeComponent } from './componentes/home/home.component';
 import { AboutComponent } from './componentes/about/about.component';
 import { FormsModule} from '@angular/forms';
 import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
+import { LoteriaComponent } from './componentes/loteria/loteria.component';
+import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    LoteriaComponent,
+    GenerarLoteriaComponent
   ],
   imports: [
     BrowserModule,
