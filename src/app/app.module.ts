@@ -9,6 +9,8 @@ import { FormsModule} from '@angular/forms';
 import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
+import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
+import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-l
     AboutComponent,
     NavegacionComponent,
     LoteriaComponent,
-    GenerarLoteriaComponent
+    GenerarLoteriaComponent,
+    CalculadoraComponent,
+    MultiplicarComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loteria.component.css']
 })
 export class LoteriaComponent implements OnInit {
-
+  objeto = {nombre: "Borrasca", apellido: "Filomena"};
   constructor() { }
 
   ngOnInit(): void {
