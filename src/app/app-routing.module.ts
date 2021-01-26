@@ -5,6 +5,7 @@ import { AboutComponent } from './componentes/about/about.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
+import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: "loteria", component:LoteriaComponent},
   {path: "calculadora", component:CalculadoraComponent},
   {path: "multiplicar/:factor", component:MultiplicarComponent},
+  {path: "tuberias", component:TuberiasComponent},
   {path: "**", component:HomeComponent}
 ];
 

@@ -11,6 +11,9 @@ import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
+import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
+import { DniPipe } from './pipes/dni.pipe';
+import { NumerosPipe } from './pipes/numeros.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.comp
     LoteriaComponent,
     GenerarLoteriaComponent,
     CalculadoraComponent,
-    MultiplicarComponent
+    MultiplicarComponent,
+    TuberiasComponent,
+    DniPipe,
+    NumerosPipe
   ],
   imports: [
     BrowserModule,

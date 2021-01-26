@@ -1,0 +1,15 @@
+<p>Convertir a mayusculas: {{ usuario | uppercase }}</p>
+<p>convertir a minusculas: {{ mes | lowercase}}</p>
+<p>La primera letra decada palabra en mayúsculas: {{texto | titlecase}} </p>
+<p>Fecha: {{fecha | date}}</p>
+<p>Fecha editada: {{fecha | date:"dd/MM/yyyy"}}</p>
+<p>Hora: {{fecha | date:"hh:mm:ss"}}</p>
+<p>Dinero: {{dinero|currency:"EUR"}}</p>
+<P>Número redondeado: {{ numero_pi|number:".3" }} el original {{numero_pi}}</P>
+<p>Seleccionar elemenosde un array: {{preposiciones| slice:2:5}}</p>
+<p>Convertir objeto a formato json: {{ usuarios |json }}</p>
+<p>el cuadrado de un numero 5: {{5 |numeros:"cuadrado"}}</p>
+<p>La raíz de 125: {{125 |numeros:"raiz"}}</p>
+<p>Numero en letras 9: {{9 |numeros:"letras"}}</p>
+<p>Calcular letra del dni con pipe personalizado: </p>
+Introduce el DNI: <input type="number" [(ngModel)]="dni"> {{dni |dni}}
