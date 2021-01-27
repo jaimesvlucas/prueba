@@ -1,0 +1,29 @@
+<h5>Notas</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titulo</th>
+            <th>contenido</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr (click)="notaSelecc(nota)"  *ngFor = "let nota of notas;let indice = index">
+            <td> {{nota.id}} </td>
+            <td> {{nota.titulo}} </td>
+            <td> {{nota.contenido}} </td>
+            <td (click)="borrarNota(indice, nota)" >x</td>
+        </tr>
+    </tbody>
+</table>
+
+<input type="text" [(ngModel)]="notaNueva.titulo" placeholder="titulo">
+<input type="text" [(ngModel)]="notaNueva.contenido" placeholder="contenido">
+<button (click)="insertarNota()" >Inertar nota</button>
+<br>
+<h5>Nota seleccionada</h5>
+<input type="text" [(ngModel)]="notaSeleccionada.titulo" placeholder="titulo">
+<input type="text" [(ngModel)]="notaSeleccionada.contenido" placeholder="contenido">
+<button (click)="editarNota(notaSeleccionada)" >Editar nota</button>
+<hr>
+<h5>Usuarios</h5>

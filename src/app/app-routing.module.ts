@@ -8,6 +8,8 @@ import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.comp
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
+import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+import { HowartsComponent } from './componentes/howarts/howarts.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: "tuberias", component:TuberiasComponent},
   {path: "estructuras", component:EstructurasComponent},
   {path: "formulario-clase", component:FormularioClaseComponent},
+  {path: "crud-local", component:CrudLocalComponent},
+  {path: "howarts", component:HowartsComponent},
   {path: "**", component:HomeComponent}
 ];
 
