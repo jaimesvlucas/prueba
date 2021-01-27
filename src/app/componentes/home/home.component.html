@@ -23,4 +23,7 @@
         </ul>
         <p>{{usuario}}</p>
     </div>
+    <ul>
+        <li (click)="muestraUsuario(items)" *ngFor="let items of usuarios1">{{items.nombre}} {{items.apellido}}</li>
+    </ul>
 </div>

@@ -34,24 +34,34 @@
   <thead>
     <tr>
       <th>Numero</th>
-    </tr>
-    <tr *ngFor= "let numero of [0,11,22,33,44,55]; let indice= index; let impar=odd;let primero= first; let ultimo=last; let cuenta=count" 
-    [ngClass]="{'text-danger':primero, 'bg-primary':impar}" (click)="muestraDatos(numero, indice, impar, primero, ultimo)" >
-      <td>
-      <p>En la posicion {{indice}} de {{cuenta-1}},que es {{impar?"impar":"par"}}, esta el numero {{numero}} {{primero?" y es el primer elemento":""}} {{ultimo?" y es el ultimo elemento":""}} </p>
-    </td>
+      <th>Par/Impar</th>
+      <th>Posición</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td scope="row"></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td scope="row"></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor= "let numero of [0,11,22,33,44,55]; let indice= index; let impar=odd;let primero= first; let ultimo=last; let cuenta=count" 
+    [ngClass]="{'text-danger':primero, 'bg-primary':impar}" (click)="muestraDatos(numero, indice, impar, primero, ultimo)">
+      <td>{{indice}}</td>
+      <td>{{impar?"impar":"par"}}</td>
+      <td>{{numero}}</td>
     </tr>
   </tbody>
 </table>
+<hr>
+<h5>Estructura Switch</h5>
+<input  type="number" [(ngModel)]="num1">
+<select  id="select" [(ngModel)]="operador">
+  <option *ngFor = "let operacion of operaciones;let indice= index" value="{{ operacion}}"> {{ operacion}} </option>
+</select>
+<input  type="number" [(ngModel)]="num2">
+<div [ngSwitch]="operador">
+  <div *ngSwitchCase="'suma'"> {{num1+num2}} </div>
+  <div *ngSwitchCase="'resta'">{{num1-num2}}</div>
+  <div *ngSwitchCase="'mult'">{{num1*num2}}</div>
+  <div *ngSwitchCase="'div'">{{num1/num2}}</div>
+  <div *ngSwitchDefault>Seleccione una opcion</div>
+</div>
+
+  
+
+

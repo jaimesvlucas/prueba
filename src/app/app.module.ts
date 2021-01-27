@@ -15,6 +15,7 @@ import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { DniPipe } from './pipes/dni.pipe';
 import { NumerosPipe } from './pipes/numeros.pipe';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
+import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EstructurasComponent } from './componentes/estructuras/estructuras.comp
     TuberiasComponent,
     DniPipe,
     NumerosPipe,
-    EstructurasComponent
+    EstructurasComponent,
+    FormularioClaseComponent
   ],
   imports: [
     BrowserModule,

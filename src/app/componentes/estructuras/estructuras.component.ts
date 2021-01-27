@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class EstructurasComponent implements OnInit {
   verdad: boolean = false;
   anios: number ;
+  num1: number = 0;
+  num2: number = 0;
+  operador:string = "";
+  operaciones:string[] = ["suma","resta","mult","div"];
   constructor() { }
 
   ngOnInit(): void {
