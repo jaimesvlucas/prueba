@@ -10,6 +10,7 @@ import { EstructurasComponent } from './componentes/estructuras/estructuras.comp
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { HowartsComponent } from './componentes/howarts/howarts.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: "formulario-clase", component:FormularioClaseComponent},
   {path: "crud-local", component:CrudLocalComponent},
   {path: "howarts", component:HowartsComponent},
+  {path: "registro", component:RegistroComponent},
   {path: "**", component:HomeComponent}
 ];
 
