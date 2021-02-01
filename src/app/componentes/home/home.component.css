@@ -1,0 +1,21 @@
+.operandoSuma {
+  font-size: 20px;
+  margin: 0px 5px;
+}
+
+.tituloHome {
+  text-align: center;
+}
+
+.linksNavs {
+  color: black;
+  font-weight: bold;
+}
+
+.linksNavs:active {
+  color: dimgrey;
+}
+
+.contenedor {
+  margin-top: 15px;
+}

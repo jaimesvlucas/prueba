@@ -1,29 +1,70 @@
-<div class="jumbotron">
-    <h1 class="display-3">Jumbo heading</h1>
-    <p class="lead">Jumbo helper text</p>
-    <hr class="my-2">
-    <p>More info</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
-    </p>
-    <div class="container">
-        <input type="text" [(ngModel)]="variable">
-        <h3>{{variable}}</h3>
-        <input type="number" [(ngModel)]="num1"><br>
-        <p *ngIf="num1==0">El numero 1 es un 0</p>
-        <input type="number" [(ngModel)]="num2"><br>
-        <p *ngIf="num2==0">El numero 2 es un 0</p>
-        <h3>{{sumaNumeros()}}</h3>
-        <h3>Lista de la variable letras</h3>
-        <ul>
-            <li *ngFor="let items of letras;index as i">{{letras[i]}}</li>
-        </ul>
-        <ul>
-            <li (click)="muestraUsuario(items)" *ngFor="let items of usuarios">{{items.nombre}} {{items.apellido}}</li>
-        </ul>
-        <p>{{usuario}}</p>
-    </div>
-    <ul>
-        <li (click)="muestraUsuario(items)" *ngFor="let items of usuarios1">{{items.nombre}} {{items.apellido}}</li>
+<div class="container-fluid">
+    <h2 class="tituloHome">Primeros ejercicios de Angular</h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link linksNavs" id="home-tab" data-toggle="tab" href="#ejercicio1" role="tab" aria-controls="home" aria-selected="true">Ejercicio 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link linksNavs" id="profile-tab" data-toggle="tab" href="#ejercicio2" role="tab" aria-controls="profile" aria-selected="false">Ejercicio 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link linksNavs" id="contact-tab" data-toggle="tab" href="#ejercicio3" role="tab" aria-controls="contact" aria-selected="false">Ejercicio 3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link linksNavs" id="contact-tab" data-toggle="tab" href="#ejercicio4" role="tab" aria-controls="contact" aria-selected="false">Ejercicio 4</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link linksNavs" id="contact-tab" data-toggle="tab" href="#ejercicio5" role="tab" aria-controls="contact" aria-selected="false">Ejercicio 5</a>
+            </li>
     </ul>
-</div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="ejercicio1" role="tabpanel" aria-labelledby="home-tab">
+            <div class="container-fluid contenedor">
+                <h4>Mostrar el valor del input en una variable <span class="badge badge-secondary">Ejercicio 1</span></h4>
+                <div class="form-group">
+                    <label for="texto">Introduce un texto</label>
+                    <input id="texto" class="form-control"  type="text" [(ngModel)]="variable"><br>
+                    <h4>{{variable}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ejercicio2" role="tabpanel2" aria-labelledby="profile-tab">
+            <div class="container-fluid contenedor">
+                <h4>2:Mostrar el valor de la suma de dos números <span class="badge badge-secondary">Ejercicio 2</span></h4>
+                <input type="number" [(ngModel)]="num1">
+                <span class="operandoSuma">+</span>
+                <input type="number" [(ngModel)]="num2">
+                <div class="col-4 contenedor">
+                    <div class="alert alert-danger" *ngIf="num1==0">**El numero 1 es un 0**</div>
+                    <div class="alert alert-danger" *ngIf="num2==0">**El numero 2 es un 0**</div>
+                </div>
+                <h5>El resultado es {{sumaNumeros()}}</h5>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ejercicio3" role="tabpanel3" aria-labelledby="contact-tab">
+            <div class="container-fluid contenedor">
+                <h4>Mostrar un array de letras en una lista <span class="badge badge-secondary">Ejercicio 3</span></h4>
+                <ul>
+                    <li *ngFor="let items of letras;index as i">{{letras[i]}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ejercicio4" role="tabpanel3" aria-labelledby="contact-tab">
+            <div class="container-fluid contenedor">
+                <h4>4:Mostar una array de usuarios <span class="badge badge-secondary">Ejercicio 4</span></h4>
+                <ul>
+                    <li (click)="muestraUsuario(items)" *ngFor="let items of usuarios">{{items.nombre}} {{items.apellido}}</li>
+                </ul>
+                <div class="alert alert-primary">{{usuario}}</div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ejercicio5" role="tabpanel3" aria-labelledby="contact-tab">
+            <div class="container-fluid contenedor">
+                <h4>5:Mostrar un array de objetos Usuario <span class="badge badge-secondary">Ejercicio 5</span></h4>
+                <ul>
+                    <li (click)="muestraUsuario(items)" *ngFor="let items of usuarios1">{{items.nombre}} {{items.apellido}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>    
