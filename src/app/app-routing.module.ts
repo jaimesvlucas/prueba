@@ -11,6 +11,7 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { HowartsComponent } from './componentes/howarts/howarts.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { CrudComponent } from './componentes/crud/crud.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: "crud-local", component:CrudLocalComponent},
   {path: "howarts", component:HowartsComponent},
   {path: "registro", component:RegistroComponent},
+  {path: "crud", component:CrudComponent},
   {path: "**", component:HomeComponent}
 ];
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
@@ -19,6 +19,7 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { HowartsComponent } from './componentes/howarts/howarts.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { CrudComponent } from './componentes/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,15 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     FormularioClaseComponent,
     CrudLocalComponent,
     HowartsComponent,
-    RegistroComponent
+    RegistroComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

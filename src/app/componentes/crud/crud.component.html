@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let nota of notas"> {{nota.titulo}} : {{nota.contenido}} </li>
+</ul>
+<br>
+<!--<form [formGroup]="formNuevo" (ngSubmit)='crearNota()' action="">
+  <input type="text"  [(ngModel)]="notaNueva.titulo" formControlName="titulo" placeholder="titulo">
+  <input type="text"  [(ngModel)]="notaNueva.contenido" formControlName="contenido" placeholder="contenido">
+  <button type="submit" [disabled]='formNuevo.invalid'>Crear Nota</button>
+</form>-->
+<input type="text" [(ngModel)]="notaNueva.titulo" placeholder="titulo">
+<input type="text" [(ngModel)]="notaNueva.contenido" placeholder="contenido">
+<button (click)="crearNota()" >Inertar nota</button>

@@ -38,6 +38,6 @@ usuarios1: Usuario[]= [
   }
 
   ngOnDestroy():void{
-    alert("hasta luego");
+    //alert("hasta luego");
   }
 }
