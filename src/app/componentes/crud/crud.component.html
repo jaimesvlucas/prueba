@@ -1,12 +1,38 @@
 <ul>
-  <li *ngFor="let nota of notas"> {{nota.titulo}} : {{nota.contenido}} </li>
+  <li (click)='formNuevo.patchValue(nota)' *ngFor="let nota of notas"> {{nota.titulo}} : {{nota.contenido}} </li>
 </ul>
 <br>
-<!--<form [formGroup]="formNuevo" (ngSubmit)='crearNota()' action="">
-  <input type="text"  [(ngModel)]="notaNueva.titulo" formControlName="titulo" placeholder="titulo">
-  <input type="text"  [(ngModel)]="notaNueva.contenido" formControlName="contenido" placeholder="contenido">
-  <button type="submit" [disabled]='formNuevo.invalid'>Crear Nota</button>
-</form>-->
-<input type="text" [(ngModel)]="notaNueva.titulo" placeholder="titulo">
-<input type="text" [(ngModel)]="notaNueva.contenido" placeholder="contenido">
-<button (click)="crearNota()" >Inertar nota</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div *ngIf='creada' class="alert alert-success" role="alert">Se ha creado correctamente la nota</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Formulario con FormGroup</h3>
+      <form [formGroup]="formNuevo" (ngSubmit)='crearNota(formNuevo.value)' action="">
+        <input type="text" class="form-control" formControlName="titulo" placeholder="titulo">
+        <input type="text" class="form-control" formControlName="contenido" placeholder="contenido">
+        <button class="btn btn-primary" type="submit" *ngIf='!formNuevo.value.id; else editar' [disabled]='formNuevo.invalid'>Crear Nota</button>
+        <ng-template #editar>
+          <button class="btn btn-primary" type="button" (click)='eliminarNota()' [disabled]='!formNuevo.value.id'>Borrar Nota</button>
+          <button class="btn btn-primary" type="button" (click)='editarNota()' [disabled]='formNuevo.invalid'>Editar Nota</button>
+          <button class="btn btn-primary" type="button" (click)='formNuevo.reset()'>Cancelar Nota</button>
+        </ng-template>
+      </form>
+    </div>
+    <div class="col">
+      <h3>Formulario con ngModel</h3>
+      <input class="form-control" type="text" [(ngModel)]="notaNueva.titulo" placeholder="titulo">
+      <input class="form-control" type="text" [(ngModel)]="notaNueva.contenido" placeholder="contenido">
+      <button class="btn btn-primary" (click)="crearNota(notaNueva)" >Inertar nota</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input (input)="buscarConRetraso()" class="form-control" type="text" [(ngModel)]="busqueda" placeholder="Buscar">
+    </div>
+  </div>
+</div>
