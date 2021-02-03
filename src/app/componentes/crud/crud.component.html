@@ -1,9 +1,24 @@
-<ul>
-  <li (click)='formNuevo.patchValue(nota)' *ngFor="let nota of notas"> {{nota.titulo}} : {{nota.contenido}} </li>
-</ul>
-<br>
-
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Titulo</th>
+            <th>Contenido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)='formNuevo.patchValue(nota)' *ngFor="let nota of notas">
+            <td>{{nota.id}}</td>
+            <td>{{nota.titulo}}</td>
+            <td>{{nota.contenido}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
       <div *ngIf='creada' class="alert alert-success" role="alert">Se ha creado correctamente la nota</div>

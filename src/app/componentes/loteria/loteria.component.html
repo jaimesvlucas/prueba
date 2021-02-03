@@ -1,17 +1,49 @@
 <h1>Ejercicios con funciones y llamadas a componentes hijos</h1>
 <div class="container-fluid">
-  <app-generar-loteria #numero1></app-generar-loteria>
-  <app-generar-loteria #numero2></app-generar-loteria>
-  <div class="row">
-    <div class="col">
-      <div class="container-fluid">
-        <h5>{{numero1.digito}} {{numero2.digito}}</h5>
+  <div class="row align-items-center">
+    <div class="col-sm">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem; height:18rem;">
+        <div class="card-header">Generar un número aleatorio</div>
+        <div class="card-body">
+          <h5 class="card-title">Numero 1</h5>
+          <app-generar-loteria #numero1></app-generar-loteria>
+        </div> 
+    </div>
+    </div>
+    <div class="col-sm">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;height:18rem;">
+        <div class="card-header">Generar un número aleatorio</div>
+        <div class="card-body">
+          <h5 class="card-title">Numero 2</h5>
+          <app-generar-loteria #numero2></app-generar-loteria>
+        </div> 
+    </div>
+    </div>
+    <div class="col-sm">
+      <div class="card-body">
         <button (click)="numero1.generarNumeroAleatorio(); numero2.generarNumeroAleatorio()">Dame un numero</button>
+        <h5>{{numero1.digito}} {{numero2.digito}}</h5>
         <h5 *ngIf="numero1.digito==numero2.digito; else elseblock">Premio</h5>
         <ng-template #elseblock><h5>Sigue jugando</h5></ng-template>
       </div>
     </div>
+    <div class="col">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;height:18rem;">
+        <div class="card-header">Generar loteria con una entrada</div>
+        <div class="card-body">
+          <h5 class="card-title">Entrada 1323 </h5>
+          <app-generar-loteria entrada = "1323"></app-generar-loteria>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;height:18rem;">
+        <div class="card-header">Generar loteria con un objeto</div>
+        <div class="card-body">
+          <h5 class="card-title">Objeto </h5>
+          <app-generar-loteria [objetoEntrada] = objeto></app-generar-loteria>
+        </div>
+      </div>
+    </div>
   </div>
-  <app-generar-loteria entrada = "1323"></app-generar-loteria>
-  <app-generar-loteria [objetoEntrada] = objeto></app-generar-loteria>
 </div>
