@@ -1,0 +1,24 @@
+  <div class="container">
+    <h2>Registro con FormBuilder</h2>
+    <form [formGroup]="formRegister" (submit)="submit()">
+        <input class="form-control" type="text" formControlName="nombre" placeholder="nombre"><br>
+        <input class="form-control" type="text" formControlName="apellidos" placeholder="apellido"><br>
+        <input class="form-control" type="text" formControlName="password" placeholder="password"><br>
+        <input class="form-control" type="text" formControlName="password2" placeholder="password2"><br>
+        <input class="form-control" type="text" formControlName="email" placeholder="email"><br>
+        <input class="form-control" type="text" formControlName="dni" placeholder="dni"><br>
+        <input class="form-control" type="number" formControlName="telefono" placeholder="telefono"><br>
+        <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid" >Registrar</button>
+      </form>
+  </div>
+  <!--<div class="container">
+      <p *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger" >El nombre no es valido {{nombre.errors |json}}  </p>
+      <p *ngIf="nombre1.errors.required && (nombre1.dirty || nombre1.touched)" class="alert alert-danger" >El nombre es requerido</p>
+      <p *ngIf="nombre1.errors.minlength" class="alert alert-danger" >El tamaño del nombre tiene que ser minimo 3 caracteres </p>
+  </div>
+  <div class="container">
+    <p *ngIf="email.invalid && (nombre1.dirty || nombre1.touched)" class="alert alert-danger" >El email no es valido {{email1.errors |json}}  </p>
+    <p *ngIf="email.errors.required" class="alert alert-danger" >El email es requerido</p>
+    <p *ngIf="email.errors.email" class="alert alert-danger" >No tiene el formato correcto </p>
+  </div>-->
+  
