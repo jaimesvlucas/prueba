@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
@@ -13,9 +14,12 @@ export class LoginComponent implements OnInit {
     email:['',[Validators.required,Validators.email]],
     password:['',[Validators.required]]
   });
-  constructor(private fb:FormBuilder, private servicioUsuario: UserService) { }
+  constructor(private fb:FormBuilder, private servicioUsuario: UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
+    if(this.servicioUsuario.isLogged()){
+      this.irHacia.navigate(['/perfil']);
+    }
   }
 
   login():void{
@@ -23,6 +27,7 @@ export class LoginComponent implements OnInit {
       respuesta=>{
         console.log(respuesta)
         this.servicioUsuario.guardarToken(respuesta);
+        this.irHacia.navigate(['/perfil']);
       },
       error=>console.log(error)
     )

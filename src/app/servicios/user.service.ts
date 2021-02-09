@@ -21,4 +21,16 @@ export class UserService {
   guardarToken(token:string):void{
     localStorage.setItem('userToken', JSON.stringify(token));
   }
+
+  isLogged():boolean{
+    return !!localStorage.getItem('userToken');
+  }
+
+  logOut():void{
+    localStorage.removeItem('userToken');
+  }
+
+  leerToken():string{
+    return localStorage.getItem('userToken');
+  }
 }
