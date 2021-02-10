@@ -7,13 +7,16 @@
             <th></th>
             <th>Titulo</th>
             <th>Contenido</th>
+            <th>idUser</th>
           </tr>
         </thead>
         <tbody>
-          <tr (click)='formNuevo.patchValue(nota)' *ngFor="let nota of notas">
+          <tr (click)='nota.idUser?formNuevo.patchValue(nota):formNuevo.reset()' *ngFor="let nota of notas" 
+           [ngClass]='{"text-white bg-dark":nota.idUser}'>
             <td>{{nota.id}}</td>
             <td>{{nota.titulo}}</td>
             <td>{{nota.contenido}}</td>
+            <td>{{nota.idUser}}</td>
           </tr>
         </tbody>
       </table>

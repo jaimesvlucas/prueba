@@ -1,1 +1,34 @@
-<p>perfil works!</p>
+<div class="conatiner">
+    <div class="row">
+        <div class="col-3">
+            <h4>Tu perfil</h4>
+            <label for="">Nombre: </label><p class="form-control">{{this.perfil.nombre}} </p>
+            <label for="">Apelldios: </label><p class="form-control">  {{this.perfil.apellidos}} </p>
+            <label for="">Email: </label><p class="form-control"> {{this.perfil.email}} </p>
+            <button class="btn btn-primary" (click)='editar=!editar'>Editar</button>
+            <button class="btn btn-primary" (click)='borrar=!borrar'>Borrar</button>
+        </div>
+    </div>
+    <div class="row" *ngIf='editar'>
+        <div class="col-6">
+            <form [formGroup]="formPerfil" (submit)="submit()">
+                <input class="form-control" type="text" formControlName="nombre" [(ngModel)]="this.perfil.nombre" placeholder="nombre"><br>
+                <input class="form-control" type="text" formControlName="apellidos" [(ngModel)]="this.perfil.apellidos" placeholder="apellido"><br>
+                <input class="form-control" type="text" formControlName="email" [(ngModel)]="this.perfil.email" placeholder="email"><br>
+                <input class="form-control" type="number" formControlName="telefono"[(ngModel)]="this.perfil.telefono" placeholder="telefono"><br>
+                <button class="btn btn-primary" type="submit" [disabled]="!formPerfil.valid" >Editar</button>
+                <button class="btn btn-danger" (click)='editar=!editar'>Cancelar</button>
+              </form>
+        </div>
+    </div>
+    <div class="row" *ngIf='borrar'>
+        <div class="col-6">
+            <h5>Quieres borrar el usuario {{this.perfil.email}} </h5>
+            <p>Introduce tu email para borrar</p>
+            <input type="text" class="form-control" [(ngModel)]='inputBorrar'>
+            <button [disabled]='inputBorrar!=this.perfil.email' class="btn btn-primary" (click)='borrarUsuario()'>Borrar</button>
+            <button class="btn btn-danger" (click)='borrar=!borrar;inputBorrar="";'>Cancelar</button>
+        </div>
+    </div>
+</div>
+

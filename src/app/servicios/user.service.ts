@@ -18,8 +18,20 @@ export class UserService {
     return this.http.post(url+"login",usuario);
   }
 
+  obtenerPerfil():Observable<any>{
+    return this.http.get(url)
+  }
+
+  editarPerfil(usuario:User):Observable<any>{
+    return this.http.put(url,usuario);
+  }
+
+  eliminarPerfil():Observable<any>{
+    return this.http.delete(url);
+  }
+
   guardarToken(token:string):void{
-    localStorage.setItem('userToken', JSON.stringify(token));
+    localStorage.setItem('userToken', token);
   }
 
   isLogged():boolean{

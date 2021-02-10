@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
@@ -53,6 +54,7 @@ import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [{provide:LOCALE_ID, useValue:"es"},{provide: HTTP_INTERCEPTORS, useClass:EnviarTokenInterceptor, multi:true}],
