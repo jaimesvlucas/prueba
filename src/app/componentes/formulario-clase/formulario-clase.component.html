@@ -1,8 +1,22 @@
-<input type="text" placeholder="nombre" [(ngModel)]="user.nombre">
-<input type="text" placeholder="apellido" [(ngModel)]="user.apellido">
-<input type="number" [(ngModel)]="user.edad">
-<button (click)="insertar()" >insertar</button>
-<h5>Usuarios</h5>
-<ul>
-    <li (click)="mostrarUsuario(user)" *ngFor="let user of users"> {{user.nombre}} {{user.apellido}} {{user.edad}} </li>
-</ul>
+<div class="container-fluid">
+    <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="user.nombre">
+    <input class="form-control" type="text" placeholder="apellido" [(ngModel)]="user.apellido">
+    <input class="form-control" placeholder="Edad" type="number" [(ngModel)]="user.edad">
+    <button class="btn btn-primary my-2" (click)="insertar()" >insertar</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr (click)="mostrarUsuario(user)" *ngFor="let user of users">
+                <td scope="row"> {{user.nombre}}</td>
+                <td>{{user.apellido}}</td>
+                <td>{{user.edad}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

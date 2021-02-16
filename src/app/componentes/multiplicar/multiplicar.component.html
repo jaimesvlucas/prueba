@@ -1,5 +1,12 @@
-<p>Esta es la tabla del {{ factor }}</p>
-
-<ul (click)="volverACalculadora()">
-  <li *ngFor="let posicion of tabla; let caca = index"> {{factor}} * {{caca}} = {{posicion}}</li>
-</ul>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">Ésta es la tabla del {{factor}}</div>
+      <div class="card-body">
+        <ul (click)="volverACalculadora()">
+          <li class="list-group-item" *ngFor="let posicion of tabla; let caca = index"> {{factor}} * {{caca}} = {{posicion}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

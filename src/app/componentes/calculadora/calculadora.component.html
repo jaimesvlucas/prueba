@@ -1,3 +1,13 @@
-<input type="number" [(ngModel)]= "num_entrada"> <br>
-<a routerLink="/multiplicar/{{num_entrada}}">Mostrar la tabla de multiplicar a través del routerLink</a><br>
-<button (click)="navegarHacia(num_entrada)">Mostrar tabla de multiplicar a traves del modulo router</button>
+<div class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+    <h1 class="display-3">Calculadora</h1>
+    <hr class="my-2">
+    <div class="container">
+      <input class="form-control" placeholder="Introduce un número" type="number" [(ngModel)]= "num_entrada">
+      <div class="container d-flex justify-content-center mt-2">
+        <a class="btn btn-outline-dark ml-2 mr-2" routerLink="/multiplicar/{{num_entrada}}" [class.disabled]="!num_entrada">Mostrar la tabla de multiplicar a través del routerLink</a>
+        <button class="btn btn-outline-dark ml-2 mr-2" (click)="navegarHacia(num_entrada)" [disabled]="!num_entrada">Mostrar tabla de multiplicar a traves del modulo router</button>
+      </div>
+    </div>
+  </div>
+</div>
