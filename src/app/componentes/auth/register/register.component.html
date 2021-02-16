@@ -1,15 +1,35 @@
   <div class="container">
-    <h2>Registro con FormBuilder</h2>
-    <form [formGroup]="formRegister" (submit)="submit()">
-        <input class="form-control" type="text" formControlName="nombre" placeholder="nombre"><br>
-        <input class="form-control" type="text" formControlName="apellidos" placeholder="apellido"><br>
-        <input class="form-control" type="text" formControlName="password" placeholder="password"><br>
-        <input class="form-control" type="text" formControlName="password2" placeholder="password2"><br>
-        <input class="form-control" type="text" formControlName="email" placeholder="email"><br>
-        <input class="form-control" type="text" formControlName="dni" placeholder="dni"><br>
-        <input class="form-control" type="number" formControlName="telefono" placeholder="telefono"><br>
-        <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid" >Registrar</button>
-      </form>
+    <div class="row">
+      <div class="col-9">
+        <h2>Registro con FormBuilder</h2>
+        <form [formGroup]="formRegister" (submit)="submit()">
+            <input class="form-control" type="text" formControlName="nombre" placeholder="nombre"><br>
+            <input class="form-control" type="text" formControlName="apellidos" placeholder="apellido"><br>
+            <input class="form-control" type="text" formControlName="password" placeholder="password"><br>
+            <input class="form-control" type="text" formControlName="password2" placeholder="password2"><br>
+            <input class="form-control" type="text" formControlName="email" placeholder="email"><br>
+            <input class="form-control" type="text" formControlName="dni" placeholder="dni"><br>
+            <input class="form-control" type="number" formControlName="telefono" placeholder="telefono"><br>
+            <button class="btn btn-primary" type="submit" [disabled]="!formRegister.valid" >Registrar</button>
+          </form>
+      </div>
+      <div class="col-3">
+        <div class="alert alert-success mt-1" role="alert" *ngIf="formRegister.untouched">
+          <strong>Introduce los valores en el Formulario</strong>
+        </div>
+        <div class="alert alert-danger mt-1" role="alert" *ngIf="formRegister.invalid && formRegister.touched">
+          <p>Nombre: {{formRegister.get('nombre').errors | json}}</p>
+          <p>Apellidos: {{formRegister.get('apellidos').errors | json}}</p>
+          <p>DNI: {{formRegister.get('dni').errors | json}}</p>
+          <p>Teléfono: {{formRegister.get('telefono').errors | json}}</p>
+          <p>E-Mail: {{formRegister.get('email').errors | json}}</p>
+          <p>Contraseña: {{formRegister.get('password').errors | json}}</p>
+        </div>
+        <div class="alert alert-success mt-1" role="alert" *ngIf="formRegister.valid">
+          <strong>El formulario es valido</strong>
+        </div>
+      </div>
+    </div>
   </div>
   <!--<div class="container">
       <p *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger" >El nombre no es valido {{nombre.errors |json}}  </p>
