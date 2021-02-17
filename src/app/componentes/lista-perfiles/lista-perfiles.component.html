@@ -1,0 +1,70 @@
+<div class="row my-2">
+  <div class="col-10">
+    <h3>Lista de Usuarios</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr (click)='this.userSel = user; formMensaje.patchValue({idDestinatario:user.id})' *ngFor='let user of usuarios'>
+          <td>{{user.nombre}}</td>
+          <td>{{user.email}}</td>
+          <td><img width='40px' src="{{user.imgSrc}}" alt=""></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-2 my-2">
+    <div class="card text-dark bg-secondary mb-3 d-flex justify-content-center align-items-center" *ngIf='userSel!=null'>
+      <h5 class="card-header">Información de {{userSel.email}}</h5>
+      <img src="{{userSel.imgSrc}}" width="100px" alt="">
+      <div class="card-body">
+        <p class="card-text">Nombre completo: {{userSel.nombre}} {{userSel.apellidos}}</p>
+        <p class="card-text">Telefono: {{userSel.telefono}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button (click)='this.mostrarMensajes=!this.mostrarMensajes; obtenerMensajes()' type="button" name="" id="" class="btn btn-primary">Listar mensajes</button>
+    <button (click)='this.enviarMensajes=!this.enviarMensajes;' type="button" name="" id="" class="btn btn-primary">Enviar mensaje</button>
+  </div>
+</div>
+<div *ngIf='this.mostrarMensajes' class="row my-2">
+  <div class="col">
+    <h3>Lista de mensajes</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Remitente</th>
+          <th>Mensaje</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr (click)='this.mensajeSel = mensaje' *ngFor='let mensaje of mensajes'>
+          <td scope="row"> {{mensaje.id}} </td>
+          <td>{{mensaje.idRemitente}}</td>
+          <td>{{mensaje.mensaje}}</td>
+          <td>{{mensaje.fecha}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button *ngIf='mensajeSel!=null' (click)='borrarMensaje()' type="button" name="" id="" class="btn btn-primary">Borrar mensaje</button>
+  </div>
+</div>
+<div *ngIf='this.enviarMensajes' class="row my-2">
+  <div class="col">
+    <h3>Enviar mensaje</h3>
+    <form [formGroup]="formMensaje" (submit)="escribirMensaje()">
+      <input class="form-control" type="text" formControlName="mensaje" placeholder="Escribe el mensaje"><br>
+      <button class="btn btn-primary" type="submit" [disabled]="!formMensaje.valid" >Enviar Mensaje</button>
+    </form>
+  </div>
+</div>

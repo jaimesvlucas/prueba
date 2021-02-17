@@ -16,24 +16,20 @@
             <li class="nav-item">
                 <a class="nav-link" routerLinkActive routerLink="/calculadora">Calculadora</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/tuberias">Tuberia</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/estructuras">Estructuras</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/formulario-clase">Formulario Clase</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/crud-local">Crud Local</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/howarts">Howarts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/crud">Crud</a>
-            </li>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Más componentes
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLinkActive routerLink="/tuberias">Tuberia</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/estructuras">Estructuras</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/formulario-clase">Formulario Clase</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/crud-local">Crud Local</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/howarts">Howarts</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/crud">Crud</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/lista-perfil">Lista Perfiles</a>
+                </div>
+            </div>
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">
             <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>

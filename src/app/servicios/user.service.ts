@@ -30,6 +30,10 @@ export class UserService {
     return this.http.delete(url);
   }
 
+  listarUsuarios():Observable<any>{
+    return this.http.get(url+"list/");
+  }
+
   subirImagen(entrada): Observable<any>{
     return this.http.post(url+'image/', entrada) 
   }

@@ -11,14 +11,14 @@
             <button class="btn btn-primary" (click)='editar=!editar'>Editar</button>
             <button class="btn btn-primary" (click)='borrar=!borrar'>Borrar</button>
         </div>
-    </div>
-    <div class="row">
         <div class="col-3">
+            <h4>Subir imagen</h4>
+            <label for="">Imagen: </label>
             <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
                 <input class="form-control" type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
                 <button class="btn btn-primary" type='submit'>Subir imagen de perfil</button>
             </form>
-              <br><br>
+            <br><br>
             <input class="form-control" type="file" (change)='tengoFoto($event)'>
             <button class="btn btn-primary" type='button' (click)='subirFoto()'>Subir imagen por parámetros</button>
         </div>

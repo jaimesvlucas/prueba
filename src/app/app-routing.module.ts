@@ -16,6 +16,7 @@ import { RegisterComponent } from './componentes/auth/register/register.componen
 import { LoginComponent } from './componentes/auth/login/login.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { UserRouterGuard } from './auth/user-router.guard';
+import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: "login", component:LoginComponent},
   {path: "perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path: "crud", component:CrudComponent},
+  {path: "lista-perfil", component:ListaPerfilesComponent},
   {path: "**", component:HomeComponent}
 ];
 
