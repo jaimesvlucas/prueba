@@ -5,8 +5,22 @@
             <label for="">Nombre: </label><p class="form-control">{{this.perfil.nombre}} </p>
             <label for="">Apelldios: </label><p class="form-control">  {{this.perfil.apellidos}} </p>
             <label for="">Email: </label><p class="form-control"> {{this.perfil.email}} </p>
+            <div class="my-1">
+                <img src='{{perfil.imgSrc}}' width='200px'>
+            </div>
             <button class="btn btn-primary" (click)='editar=!editar'>Editar</button>
             <button class="btn btn-primary" (click)='borrar=!borrar'>Borrar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+                <input class="form-control" type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
+                <button class="btn btn-primary" type='submit'>Subir imagen de perfil</button>
+            </form>
+              <br><br>
+            <input class="form-control" type="file" (change)='tengoFoto($event)'>
+            <button class="btn btn-primary" type='button' (click)='subirFoto()'>Subir imagen por parámetros</button>
         </div>
     </div>
     <div class="row" *ngIf='editar'>
@@ -18,7 +32,7 @@
                 <input class="form-control" type="number" formControlName="telefono"[(ngModel)]="this.perfil.telefono" placeholder="telefono"><br>
                 <button class="btn btn-primary" type="submit" [disabled]="!formPerfil.valid" >Editar</button>
                 <button class="btn btn-danger" (click)='editar=!editar'>Cancelar</button>
-              </form>
+            </form>
         </div>
     </div>
     <div class="row" *ngIf='borrar'>

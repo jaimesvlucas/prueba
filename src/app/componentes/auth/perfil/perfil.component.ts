@@ -25,6 +25,10 @@ export class PerfilComponent implements OnInit {
     telefono:[undefined,[telfonoValido()]],
   });
 
+  formImagen = this.fb.group({
+    imagen: ['', Validators.required]
+  })
+
   ngOnInit(): void {
     this.cargarPerfil();
   }
@@ -59,6 +63,41 @@ export class PerfilComponent implements OnInit {
         this.irHacia.navigate(['/login']);
       },
       error=>console.log(error)
+    )
+  }
+
+  cambiaImagen(evento): void{
+    if(evento.target.files){
+      this.formImagen.get('imagen').setValue(evento.target.files[0])
+    }
+  }
+  
+  subirImagen(): void{
+    const formData = new FormData()
+    formData.append('imagen', this.formImagen.get('imagen').value)
+    this.serviciosUsuario.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.cargarPerfil()
+      },
+      error => {console.log(error)}
+    )
+  }
+  foto: File
+  tengoFoto(evento): void{
+    if(evento.target.files){
+      this.foto = evento.target.files[0]
+    }
+  }
+  subirFoto(): void{
+    const formData = new FormData()
+    formData.append('imagen', this.foto)
+    this.serviciosUsuario.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.cargarPerfil()
+      },
+      error => {console.log(error)}
     )
   }
 

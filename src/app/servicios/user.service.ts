@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, AccesoUsuario } from '../clases/user';
 import { Observable } from 'rxjs';
-const url = 'http://localhost:3000/user/';
+const url = 'http://localhost/backendphp/user/';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,7 @@ export class UserService {
   }
   
   acceso(usuario:AccesoUsuario):Observable<any>{
-    return this.http.post(url+"login",usuario);
+    return this.http.post(url+'login/', usuario);
   }
 
   obtenerPerfil():Observable<any>{
@@ -28,6 +28,10 @@ export class UserService {
 
   eliminarPerfil():Observable<any>{
     return this.http.delete(url);
+  }
+
+  subirImagen(entrada): Observable<any>{
+    return this.http.post(url+'image/', entrada) 
   }
 
   guardarToken(token:string):void{
