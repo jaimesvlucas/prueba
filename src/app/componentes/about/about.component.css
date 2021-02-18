@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+.font-custom{
+  font-family: 'Gloria Hallelujah', cursive;
+}
 .container {
   height: 100vh;
 }

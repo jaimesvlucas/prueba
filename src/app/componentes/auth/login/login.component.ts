@@ -10,6 +10,8 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  errorRespuesta:boolean =false;
+  mensaje:string;
   formLogin = this.fb.group({
     email:['',[Validators.required,Validators.email]],
     password:['',[Validators.required]]
@@ -29,7 +31,12 @@ export class LoginComponent implements OnInit {
         this.servicioUsuario.guardarToken(respuesta);
         this.irHacia.navigate(['/perfil']);
       },
-      error=>console.log(error)
+      error=>{
+        console.log(error)
+        this.errorRespuesta = true;
+        this.mensaje = error.error.error;
+        setTimeout(()=>{this.errorRespuesta=false},3000);
+      }
     )
   }
 }

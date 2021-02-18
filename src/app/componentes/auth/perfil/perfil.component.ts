@@ -17,7 +17,10 @@ export class PerfilComponent implements OnInit {
   perfil: User={};
   editar: boolean = false;
   borrar: boolean = false;
-  inputBorrar: string=""; 
+  inputBorrar: string="";
+  respuestaCreada:boolean= false;
+  errorRespuesta:boolean =false;
+  mensaje:string;
   formPerfil = this.fb.group({
     nombre:[''],
     apellidos:[''],
@@ -48,8 +51,16 @@ export class PerfilComponent implements OnInit {
         respuesta=>{
           console.log(respuesta);
           this.editar=false;
+          this.respuestaCreada=true;
+          this.mensaje="El perfil ha sido editado";
+          setTimeout(()=>{this.respuestaCreada=false},3000);
         },
-        error=>console.log(error)  
+        error=>{
+          console.log(error)
+          this.errorRespuesta = true;
+          this.mensaje = error.error.error;
+          setTimeout(()=>{this.errorRespuesta=false},3000);
+        }  
       )
   }
 
@@ -62,7 +73,12 @@ export class PerfilComponent implements OnInit {
         this.inputBorrar="";
         this.irHacia.navigate(['/login']);
       },
-      error=>console.log(error)
+      error=>{
+        console.log(error)
+        this.errorRespuesta = true;
+        this.mensaje = error.error.error;
+        setTimeout(()=>{this.errorRespuesta=false},3000);
+      }
     )
   }
 
@@ -79,8 +95,16 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.cargarPerfil()
+        this.respuestaCreada=true;
+        this.mensaje="Se ha subido la imagen correctamente";
+        setTimeout(()=>{this.respuestaCreada=false},3000);
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.errorRespuesta = true;
+        this.mensaje = error.error.error;
+        setTimeout(()=>{this.errorRespuesta=false},3000);
+      }
     )
   }
   foto: File
@@ -96,8 +120,16 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.cargarPerfil()
+        this.respuestaCreada=true;
+        this.mensaje="Se ha subido la imagen correctamente";
+        setTimeout(()=>{this.respuestaCreada=false},3000);
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.errorRespuesta = true;
+        this.mensaje = error.error.error;
+        setTimeout(()=>{this.errorRespuesta=false},3000);
+      }
     )
   }
 

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+.font-custom{
+  font-family: 'Syncopate', sans-serif;
+}
 .texto-centro {
   text-align: center;
 }

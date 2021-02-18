@@ -20,6 +20,9 @@ export class ListaPerfilesComponent implements OnInit {
   mostrarMensajes: boolean=false;
   enviarMensajes: boolean=false;
   mensajeSel: Mensaje;
+  respuestaCreada:boolean= false;
+  errorRespuesta:boolean =false;
+  mensaje:string;
   formMensaje = this.fb.group({
     idDestinatario:[''],
     mensaje:['',[Validators.required]]
@@ -55,8 +58,16 @@ export class ListaPerfilesComponent implements OnInit {
         console.log(respuesta);
         this.enviarMensajes=false;
         this.formMensaje.reset();
+        this.respuestaCreada=true;
+        this.mensaje="El mensaje se ha enviado";
+        setTimeout(()=>{this.respuestaCreada=false},3000);
       },
-      error=>console.log(error)
+      error=>{
+        console.log(error)
+        this.errorRespuesta = true;
+        this.mensaje = error.error.error;
+        setTimeout(()=>{this.errorRespuesta=false},3000);
+      }
     )
   }
 
@@ -64,9 +75,17 @@ export class ListaPerfilesComponent implements OnInit {
     this.servicioMensaje.eliminarMensaje(this.mensajeSel.id).subscribe(
       respuesta=>{
         console.log(respuesta);
+        this.respuestaCreada=true;
+        this.mensaje="El mensaje se ha borrado";
+        setTimeout(()=>{this.respuestaCreada=false},3000);
         this.obtenerMensajes();
       },
-      error=>console.log(error)
+      error=>{
+        console.log(error)
+        this.errorRespuesta = true;
+        this.mensaje = error.error.error;
+        setTimeout(()=>{this.errorRespuesta=false},3000);
+      }
     )
   }
 }

@@ -1,4 +1,18 @@
 <div class="conatiner">
+    <div class="row" *ngIf='respuestaCreada && mensaje!=null'>
+        <div class="col">
+          <div class="alert alert-success">
+            <p>{{mensaje}}</p>
+        </div>
+        </div>
+      </div>
+      <div class="row" *ngIf='errorRespuesta && mensaje!=null'>
+        <div class="col">
+          <div class="alert alert-danger">
+            <p>{{mensaje}}</p>
+        </div>
+        </div>
+      </div>
     <div class="row">
         <div class="col-3">
             <h4>Tu perfil</h4>

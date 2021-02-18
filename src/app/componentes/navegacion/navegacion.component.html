@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Jaime Sánchez-V Lucas</a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark font-custom">
+    <a class="navbar-brand" href="#">JaimeSVLucas</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -14,20 +14,20 @@
                 <a class="nav-link" routerLinkActive routerLink="/loteria">Loteria</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLinkActive routerLink="/calculadora">Calculadora</a>
+                <a class="nav-link" routerLinkActive routerLink="/calculadora"><i class="fas fa-calculator"></i> Calculadora</a>
             </li>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Más componentes
+                    Mas componentes
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" routerLinkActive routerLink="/tuberias">Tuberia</a>
                     <a class="dropdown-item" routerLinkActive routerLink="/estructuras">Estructuras</a>
                     <a class="dropdown-item" routerLinkActive routerLink="/formulario-clase">Formulario Clase</a>
                     <a class="dropdown-item" routerLinkActive routerLink="/crud-local">Crud Local</a>
-                    <a class="dropdown-item" routerLinkActive routerLink="/howarts">Howarts</a>
-                    <a class="dropdown-item" routerLinkActive routerLink="/crud">Crud</a>
-                    <a class="dropdown-item" routerLinkActive routerLink="/lista-perfil">Lista Perfiles</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/howarts"><i class="fas fa-magic"></i>Howarts</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/crud"><i class="fas fa-clipboard-list"></i> Crud</a>
+                    <a class="dropdown-item" routerLinkActive routerLink="/lista-perfil"><i class="fa fa-users"></i> Lista Perfiles</a>
                 </div>
             </div>
         </ul>
@@ -42,10 +42,10 @@
             </ng-template>
             <ng-template #salir>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive routerLink="/perfil">Perfil</a>
+                    <a class="nav-link" routerLinkActive routerLink="/perfil"><i class="far fa-user-circle"></i> Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)='doLogout()' routerLink=".">Logout</a>
+                    <a class="nav-link" (click)='doLogout()' routerLink="."><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </li>
             </ng-template>
         </ul>

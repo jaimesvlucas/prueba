@@ -1,3 +1,17 @@
+<div class="row" *ngIf='respuestaCreada && mensaje!=null'>
+  <div class="col">
+    <div class="alert alert-success">
+      <p>{{mensaje}}</p>
+  </div>
+  </div>
+</div>
+<div class="row" *ngIf='errorRespuesta && mensaje!=null'>
+  <div class="col">
+    <div class="alert alert-danger">
+      <p>{{mensaje}}</p>
+  </div>
+  </div>
+</div>
 <div class="row my-2">
   <div class="col-10">
     <h3>Lista de Usuarios</h3>
